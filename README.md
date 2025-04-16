@@ -5,7 +5,7 @@ Official Repository for paper AlignRAG: An Adaptable Framework for Resolving \\ 
 
 ## Main Framework
 
-[Fig_big.pdf](https://github.com/user-attachments/files/19771820/Fig_big.pdf)
+![image](https://github.com/user-attachments/assets/a6e85620-52c2-42a7-bd77-343928c11f91)
 
 
 ## Main Results
