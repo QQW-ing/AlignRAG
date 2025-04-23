@@ -1,7 +1,7 @@
 # AlignRAG: An Adaptable Framework for Resolving Reasoning Misalignment in Retrieval-Augmented Generation
 
 
-Official Repository for paper AlignRAG: An Adaptable Framework for Resolving \\ Reasoning Misalignment in Retrieval-Augmented Generation.
+Our complete code will be released soon.
 
 ## Main Framework
 
