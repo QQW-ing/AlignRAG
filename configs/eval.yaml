@@ -17,25 +17,8 @@ metrics:
 - precision
 - recall
 model2path:
-  llama_3b: /mnt/hwfile/ai4chem/share/cache/hub/models--meta-llama--Llama-3.2-3B-Instruct/snapshots/0cb88a4f764b7a12671c53f0838cd831a0843b95
-  qwen_3b: /mnt/hwfile/ai4bio/denovo/llm/Qwen/Qwen2.5-3B-Instruct/snapshots/aa8e72537993ba99e69dfaafa59ed015b17504d1
-  train_llama_3b: /model/train_llama_3b
-  train_llama_critic_3b: /model/train_llama_critic_3b
-  train_llama_critic_rationale_3b: /model/train_llama_critic_rationale_3b
-  train_llama_mix800k_ckpt1000_3b: /model/train_llama_mix800k_ckpt1000_3b
-  train_llama_mix800k_ckpt2000_3b: /model/train_llama_mix800k_ckpt2000_3b
-  train_llama_mix800k_ckpt3000_3b: /model/train_llama_mix800k_ckpt3000_3b
-  train_llama_my_3b: /model/train_llama_my_3b
-  train_llama_my_ckpt10000_3b: /model/train_llama_my_ckpt10000_3b
-  train_llama_my_ckpt1000_3b: /model/train_llama_my_ckpt1000_3b
-  train_llama_my_ckpt2000_3b: /model/train_llama_my_ckpt2000_3b
-  train_llama_my_ckpt3000_3b: /model/train_llama_my_ckpt3000_3b
-  train_llama_my_ckpt4000_3b: /model/train_llama_my_ckpt4000_3b
-  train_llama_rationale_3b: /model/train_llama_rationale_3b
-  train_qwen_3b: /model/train_qwen_3b
-  train_qwen_critic_3b: /model/train_qwen_critic_3b
-  train_qwen_critic_rationale_3b: /model/train_qwen_critic_rationale_3b
-  train_qwen_rationale_3b: /model/train_qwen_rationale_3b
-model_name_or_path: /mnt/hwfile/ai4chem/share/cache/hub/models--meta-llama--Llama-3.2-3B-Instruct/snapshots/0cb88a4f764b7a12671c53f0838cd831a0843b95
+  llama_3b: meta-llama--Llama-3.2-3B-Instruct/snapshots/0cb88a4f764b7a12671c53f0838cd831a0843b95
+
+model_name_or_path: meta-llama--Llama-3.2-3B-Instruct/snapshots/0cb88a4f764b7a12671c53f0838cd831a0843b95
 save_dir: log/
 use_fid: false
