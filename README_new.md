@@ -1,4 +1,3 @@
-
 ## Requirements
 We implement the training and RAG pipeline based on [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) and [FlashRAG](https://github.com/RUC-NLPIR/FlashRAG) respectively. 
 
