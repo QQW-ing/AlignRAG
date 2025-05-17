@@ -56,7 +56,8 @@ class BasePromptTemplate:
                         self.tokenizer.decode(tokenized_prompt[-half:], skip_special_tokens=True)
             return prompt
 
-
+    
+  
 class RationalePromptTemplate(BasePromptTemplate):
     placeholders = ["query", "gold", "text"]
     
@@ -136,17 +137,18 @@ class RationalePromptTemplate(BasePromptTemplate):
 class CritiqueRationalePromptTemplate(BasePromptTemplate):
     placeholders = ["query", "gold", "text", "rationale"]
 
-
     base_system_prompt_critique = (
         "Read the following documents relevant to the given question: {query}"
         "\n{text}"
     )
+    # contrast with gold rationale
     base_user_prompt = (
         "\nHere is the given weak rationale: {rationale}"
         "\n\nHere is the given gold rationale: {gold}"
         "\n\nFirst, explain how the gold rationale leads to the answer step by step."
         "\nThen, identify the errors and hallucinations of the weak rationale, and give constructive criticism for improving the weak rationale to be more aligned with the gold rationale."
     )
+
 
     def __init__(self, config, system_prompt="", user_prompt="", reference_template=None, enable_chat=True):
         super().__init__(config)
@@ -215,3 +217,4 @@ class CritiqueRationalePromptTemplate(BasePromptTemplate):
             input = "\n\n".join([prompt for prompt in [system_prompt, user_prompt] if prompt != ""])
 
         return self.truncate_prompt(input)
+

@@ -1,8 +1,0 @@
-adapter_name_or_path: main/output/train_llama_critic_rationale_2k_8b_distill72b_nolabel_gold_2/checkpoint-300
-export_device: cpu
-export_dir: main/model/train_llama_critic_rationale_2k_8b_distill72b_nolabel_gold_2/checkpoint-300
-export_legacy_format: false
-export_size: 2
-finetuning_type: lora
-model_name_or_path: /mnt/hwfile/ai4bio/denovo/llm/models--meta-llama--Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659
-template: llama3

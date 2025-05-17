@@ -1,0 +1,8 @@
+adapter_name_or_path: output/llama_critic_rationale_2k_3b_contrast05b_nolabel_gold/checkpoint-300
+export_device: cpu
+export_dir: llama_critic_rationale_2k_3b_contrast05b_nolabel_gold/checkpoint-300
+export_legacy_format: false
+export_size: 2
+finetuning_type: lora
+model_name_or_path: meta-llama--Llama-3.2-3B-Instruct/snapshots/0cb88a4f764b7a12671c53f0838cd831a0843b95
+template: llama3

@@ -4,6 +4,7 @@ from tqdm import tqdm
 from data_utils import *
 
 
+
 rationale_system_prompt = (
     "The following are given documents.\n\n{reference}"
 )
@@ -18,6 +19,7 @@ critic_rationale_user_prompt = (
     "\nHere is the given weak rationale: {rationale}"
     "\nPlease identify the weaknesses and hallucinations of the rationale, and give constructive criticism for improving the weak rationale."
 )
+# critic_rationale_output_prompt = "{critique}"
 critic_rationale_output_prompt = (
     "The critique for the rationale is: {critique}"
     "\n\nThe better rationale should be: {gold_rationale}"
@@ -38,6 +40,7 @@ critic_rationale_dpo_rejected_prompt = "{critique_reject}"
 
 
 
+
 def run_rationale(args):
     q_lists, psgs_lists, rationale_lists = [], [], []
     for dataset_name in args.dataset_name:
@@ -51,6 +54,10 @@ def run_rationale(args):
             input_path = f'{args.input_path}/{dataset_name}/train_rationale_2k_14b.json'
         else:
             input_path = f'{args.input_path}/{dataset_name}/train_rationale_no_answer_2k_8b.json'
+        # if args.do_answer:
+        #     input_path = f'{args.input_path}/{dataset_name}/train_refine_2k_3b_self.json'
+        # else:
+        #     input_path = f'{args.input_path}/{dataset_name}/train_refine_no_answer_2k_3b_self.json'
         with open(input_path) as fr:
             for line in fr:
                 data = json.loads(line)
@@ -88,9 +95,9 @@ def run_critic_rationale(args):
 
         rationale_list = []
         if args.do_answer:
-            input_path = f'{args.input_path}/{dataset_name}/train_rationale_2k_1b.json'
+            input_path = f'{args.input_path}/{dataset_name}/train_rationale_2k_05b.json'
         else:
-            input_path = f'{args.input_path}/{dataset_name}/train_rationale_no_answer_2k_1b.json'
+            input_path = f'{args.input_path}/{dataset_name}/train_rationale_no_answer_2k_05b.json'
         with open(input_path) as fr:
             for line in fr:
                 data = json.loads(line)
@@ -99,7 +106,7 @@ def run_critic_rationale(args):
         rationale_lists.extend(rationale_list)
     
         critique_rationale_list = []
-        input_path = f'{args.input_path}/{dataset_name}/train_{args.type}_2k_1b_distill72b_nolabel_gold.json'
+        input_path = f'{args.input_path}/{dataset_name}/train_{args.type}_2k_3b_contrast05b_nolabel_gold.json'
         with open(input_path) as fr:
             for line in fr:
                 data = json.loads(line)
@@ -109,7 +116,7 @@ def run_critic_rationale(args):
         critique_rationale_lists.extend(critique_rationale_list)
 
         gold_rationale_list = []
-        input_path = f'{args.input_path}/{dataset_name}/train_rationale_2k_72b.json'
+        input_path = f'{args.input_path}/{dataset_name}/train_rationale_2k_3b.json'
         with open(input_path) as fr:
             for line in fr:
                 data = json.loads(line)
@@ -137,7 +144,7 @@ def run_critic_rationale(args):
     
     random.shuffle(train_data)
     
-    output_path = f"{args.output_file}/{args.type}_2k_1b_distill72b_nolabel_gold.json"
+    output_path = f"{args.output_file}/{args.type}_2k_3b_contrast05b_nolabel_gold.json"
     with open(output_path, 'w') as fw:
         json.dump(train_data,fw,indent=2)
 
@@ -214,7 +221,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--input_path", type=str, default='../data/e5/train/')
-    parser.add_argument("--output_file", type=str, default='data/main.json')
+    parser.add_argument("--output_file", type=str, default='data/rbft.json')
     parser.add_argument("--position", type=str, default='random', choices=['random', 'top', 'bottom'])
     parser.add_argument("--topk", type=int, default=5)
     parser.add_argument("--type", type=str, default='critic')

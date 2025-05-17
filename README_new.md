@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 ## Requirements
 We implement the training and RAG pipeline based on [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) and [FlashRAG](https://github.com/RUC-NLPIR/FlashRAG) respectively. 
@@ -61,12 +60,20 @@ python data/data_gen.py \
 
 Then generate the training data:
 ```bash
-python rbft/data_critic.py \
+python train/data_critic.py \
         --input_path $input_path \
         --output_file $output_path \
         --type "critic_rationale" \
         --dataset_name $dataset_names \
         --filter_type $filter_type
+```
+
+add the generated data path to the train/data/dataset_info.json:
+
+```json
+{
+    "critic_rationale": "data/data_gen.json"
+}
 ```
 
 #### 2.3 Train and Merge CLM
@@ -96,13 +103,3 @@ python -u eval/inference_vllm.py \
     --iters $iter \
     --phase $phase \
 ```
-=======
-# AlignRAG: An Adaptable Framework for Resolving Reasoning Misalignment in Retrieval-Augmented Generation
-
-
-**Our complete code will be released soon!**
-
-## Main Framework
-
-![image](https://github.com/user-attachments/assets/a6e85620-52c2-42a7-bd77-343928c11f91)
->>>>>>> 03868f976bed66ec28e77c430caa4021c0a6b518

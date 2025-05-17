@@ -43,13 +43,13 @@ def sample_train_noise(args):
     all_data = []
     
     # 并行加载所有数据集的文档
-    for dataset_name in tqdm(dataset_names, desc="加载数据集"):
+    for dataset_name in tqdm(dataset_names, desc="loading data"):
         q, psgs, a, rationale = load_data_with_passage(f'{args.data_path}', dataset_name)
         all_psgs.update(psgs)
         all_data.append((q, psgs, a, rationale))
     
     # 批量处理每个数据集
-    for i, (q, psgs, a, rationale) in enumerate(tqdm(all_data, desc="生成噪声文档")):
+    for i, (q, psgs, a, rationale) in enumerate(tqdm(all_data, desc="generating noisy data")):
         # 使用集合运算快速获取其他文档
         psgs_set = set(psgs)
         other_psgs = [psg for psg in all_psgs if psg not in psgs_set]
@@ -65,12 +65,13 @@ def sample_train_noise(args):
                         'rationale': rationale[j], 'noisy_ctxs': noisy_psgs[j]}
                 fw.write(json.dumps(data) + '\n')
 
+
 def sample_train_classify(args):
     dataset_names = ['2WikiMultiHopQA', 'ASQA', 'PopQA', 'TriviaQA', 'NaturalQuestions', 'hotpotqa', 'squad']
     # dataset_names = ['2WikiMultiHopQA']
 
     # 并行加载所有数据集的文档
-    for dataset_name in tqdm(dataset_names, desc="加载数据集"):
+    for dataset_name in tqdm(dataset_names, desc="loading data"):
         with open(f'{args.data_path}/{dataset_name}/test.json', 'r') as fr:
             test_data = json.load(fr)
             # if len(test_data) > 10000:
