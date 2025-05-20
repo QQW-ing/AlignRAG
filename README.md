@@ -1,3 +1,5 @@
+<img width="984" alt="Clipboard_Screenshot_1747721350" src="https://github.com/user-attachments/assets/b5459487-b696-45da-9cd3-d64409c235d4" />
+
 ## Requirements
 We implement the training and RAG pipeline based on [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) and [FlashRAG](https://github.com/RUC-NLPIR/FlashRAG) respectively. 
 
@@ -102,3 +104,6 @@ python -u eval/inference_vllm.py \
     --iters $iter \
     --phase $phase \
 ```
+
+## Results
+<img width="1036" alt="Clipboard_Screenshot_1747721379" src="https://github.com/user-attachments/assets/e672b6ba-74f1-49e2-b89f-ae091d000b4f" />
