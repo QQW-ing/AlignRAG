@@ -2,14 +2,15 @@
 <img width="984" alt="Clipboard_Screenshot_1747721350" src="https://github.com/user-attachments/assets/b5459487-b696-45da-9cd3-d64409c235d4" />
 
 ## Requirements
-We implement the training and RAG pipeline based on [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) and [FlashRAG](https://github.com/RUC-NLPIR/FlashRAG) respectively. 
+We implement the training and RAG pipeline based on [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) and [FlashRAG](https://github.com/RUC-NLPIR/FlashRAG), respectively. 
 
 Please install both libraries and their dependencies as specified in their respective repositories.
 
 
 ## Reproduce
 
-### 0. Datasets (The same as [InstructRAG](https://github.com/weizhepei/InstructRAG))
+### 0. Datasets
+
 
 Download preprocessed datasets (augmented with retrieved documents and rationales) from the following [Link](https://drive.google.com/file/d/1MVkdc4g9_D4REtaBFKeJ9gMun4qzdQtO/view?usp=share_link).
 
